@@ -1,0 +1,273 @@
+.presentation .sec {
+    display: flex; /* Affiche l'image et le texte côte à côte */
+    align-items: center; /* Aligne verticalement les éléments */
+    justify-content: space-between; /* Ajoute de l'espace entre les éléments */
+    flex-wrap: wrap; /* Permet aux éléments de s'empiler sur petits écrans */
+    margin-bottom: 20px;
+}
+
+/* Colonne gauche (image) */
+.presentation .left {
+    width: 30%; /* Largeur de la colonne pour grands écrans */
+    text-align: center;
+    margin-bottom: 20px; /* Ajoute un espacement pour petits écrans */
+}
+
+.presentation .left img {
+    width: 100%; /* L'image occupe toute la largeur de sa colonne */
+    max-width: 300px; /* Taille maximale de l'image */
+    height: auto; /* Maintient les proportions */
+    border-radius: 10px; /* Arrondit les coins */
+}
+
+/* Colonne droite (texte) */
+.presentation .right {
+    width: 65%; /* Largeur de la colonne pour grands écrans */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+/* Responsive pour petits écrans */
+@media screen and (max-width: 768px) {
+    .presentation .sec {
+        flex-direction: column; /* Les éléments s'empilent verticalement */
+        align-items: center; /* Centre les éléments */
+    }
+
+    .presentation .left,
+    .presentation .right {
+        width: 100%; /* Les colonnes prennent toute la largeur */
+        text-align: center; /* Centre le contenu */
+    }
+
+    .presentation .right {
+        padding: 0; /* Supprime les marges inutiles */
+    }
+}
+
+body{
+    font-family: 'Century Gothic', Calibri, serif;
+    font-size: 13px;
+    margin: 0px;
+    padding: 0px;
+	background-color: #000; /* Fond noir */
+    color: #fff; /* Texte blanc */
+}
+
+h1{
+    font-size: 40px;
+    font-weight: normal;
+    text-align: center;
+}
+
+header{
+    height: 100px;
+}
+
+footer{
+    height: 80px;
+    padding-top: 30px;
+    text-align: center;
+    background-color: #C5C5C5;
+    border-top: 2px solid #AAA;
+}
+nav{
+    width: 100%;
+    background-color: #424558;
+}
+
+nav ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+nav li{
+    list-style-type: none;
+    float: left;
+}
+
+nav a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 20px 30px;
+	color: #FFF;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+.table{
+	display: table;
+	margin: 0 auto;
+}
+.menu-ind:hover{
+	border-top: 5px solid #4C8;
+	background-color: RGBa(64, 200, 130, 0.15);
+}
+.menu-exp:hover{
+    border-top: 5px solid #f1dc4f;
+    background-color: rgba(241, 211, 79, 0.15);
+}
+
+.menu-hob:hover{
+    border-top: 5px solid #0070BB;
+    background-color: rgba(0, 112, 192, 0.15);
+}
+
+.menu-con:hover{
+    border-top: 5px solid #e44d26;
+    background-color: rgba(228, 77, 38, 0.15);
+}
+nav li:hover a{
+	padding: 15px 30px 20px 30px;
+}
+
+
+@media screen and (max-width: 780px) {
+    header{
+        height: 50px;
+    }
+    h1{
+        font-size: 28px;
+        margin: 20px 0px 0px 0px;
+    }
+}
+
+section{
+    width: 100%;
+    min-height: 300px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.sec{
+    margin: 0px 10%;
+
+}
+
+.left{
+    float: left;
+    width: 30%;
+}
+
+.right{
+    float: left;
+    width: 70%;
+	
+}
+.cleft, .cright, .sousleft, .sousright{
+    width: 50%;
+    float: left;
+}
+
+.sec::after, .exp::after, .reco::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.orange {
+    border-top: 5px solid #e47d26;
+    background-color: rgba(228, 117, 38, 0.15);
+    margin-bottom: 0px;
+	animation: slideInFromLeft 1.5s ease-out forwards; /* Animation à gauche */
+    opacity: 0; /* Initialement invisible */
+	 text-align: center; /* Centrer tout le contenu dans la section orange */
+    padding: 20px; /* Ajoute un espace autour du contenu */
+}
+
+
+
+.rose {
+    border-top: 5px solid #e44d96;
+    background-color: rgba(228, 77, 128, 0.15);
+    margin-bottom: 0px;
+	animation: slideInFromRight 1.5s ease-out forwards; /* Animation à droite */
+    opacity: 0; /* Initialement invisible */
+	 text-align: center; /* Centrer tout le contenu dans la section orange */
+    padding: 20px; /* Ajoute un espace autour du contenu */
+}
+
+/* Animation pour faire apparaître de la gauche */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%); /* Départ hors de l'écran à gauche */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* Position normale */
+        opacity: 1;
+    }
+}
+
+/* Animation pour faire apparaître de la droite */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%); /* Départ hors de l'écran à droite */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* Position normale */
+        opacity: 1;
+    }
+}
+.vert{
+	border-top: 5px solid #5f6;
+	background-color: RGBa(70, 240, 80, 0.15);
+	animation: stackUp 1s ease-out forwards; /* Animation pour le vert */
+    animation-delay: 0s; /* Pas de délai pour le vert */
+    opacity: 0; /* Initialement invisible */
+}
+.bleu {
+	border-top: 5px solid #29c;
+    background-color: rgba(30, 152, 212, 0.15); 
+	animation: stackUp 1s ease-out forwards; /* Animation pour le bleu */
+    animation-delay: 0.5s; /* Délai après le vert */
+    opacity: 0; /* Initialement invisible */
+}
+.jaune {
+	border-top: 5px solid #f3e241;
+    background-color: rgba(240, 255, 69, 0.15);
+	 animation: stackUp 1s ease-out forwards; /* Animation pour le jaune */
+    animation-delay: 1s; /* Délai après le bleu */
+    opacity: 0; /* Initialement invisible */
+	
+}
+@keyframes stackUp {
+    0% {
+        transform: translateY(50px); /* Commence en position plus basse */
+        opacity: 0; /* Commence invisible */
+    }
+    100% {
+        transform: translateY(0); /* Atteint la position normale */
+        opacity: 1; /* Devient visible */
+    }
+}
+
+
+
+.rouge{
+	border-top: 5px solid #e44d26;
+    background-color: rgba(228, 77, 38, 0.15);
+	 padding: 20px;
+    opacity: 0; /* Initialement invisible */
+    animation: slideFromTop 1.5s ease-out forwards; /* Animation glisse du haut */
+}
+/* Animation pour faire apparaître la section rouge du haut */
+@keyframes slideFromTop {
+    0% {
+        transform: translateY(-100%); /* Départ hors de l'écran, au-dessus */
+        opacity: 0; /* Complètement transparent */
+    }
+    100% {
+        transform: translateY(0); /* Position normale */
+        opacity: 1; /* Complètement visible */
+    }
+}
+
+
+
+
+
+
+
+
+
+
